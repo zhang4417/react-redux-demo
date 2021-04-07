@@ -1,5 +1,6 @@
 import TodoList from './components/TodoList'
 import AddTodo from './components/AddTodo'
+import ShowTodo from './components/ShowTodo'
 import './App.css';
 
 
@@ -9,6 +10,7 @@ function App() {
     <>
       <AddTodo></AddTodo>
       <TodoList></TodoList>
+      <ShowTodo/>
     </>
   );
 }

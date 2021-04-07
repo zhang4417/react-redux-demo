@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 
 const AddTodo=({addTodoEve,todo})=>{
     let inputRef
-    const onAddTodo=()=>{
-        console.log('执行了')
+    const onAddTodo=(e)=>{
+        e.preventDefault()
         if(!inputRef.value.trim()){return}
         addTodoEve(inputRef.value)
         console.log(inputRef.value)
@@ -12,9 +12,9 @@ const AddTodo=({addTodoEve,todo})=>{
     }
     return(
         <>
-            <form>
-                <input ref={node=>inputRef=node}></input>
-                <button type="button" onClick={onAddTodo}>添加任务</button>
+            <form onSubmit={onAddTodo}>
+                <input type="text" ref={node=>inputRef=node}></input>
+                <button type="submit">添加任务</button>
                 <br/>
             </form>
         </>
@@ -26,4 +26,4 @@ const mapDispatchToProps=(dispatch)=>{
         addTodoEve:(text)=>{dispatch(addTodo(text))}
     }
 }
-export default connect(state=>({todo:state}),mapDispatchToProps)(AddTodo)
+export default connect(state=>({todo:state.addTodo}),mapDispatchToProps)(AddTodo)

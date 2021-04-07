@@ -6,3 +6,8 @@ export const addTodo=(text)=>{
 export const toggleTodo=(id)=>{
     return {type:"toggle_todo",id}
 }
+
+export const selectTodo=(filter)=>{
+    return {type:"select_todo_type",filter}
+}
+
